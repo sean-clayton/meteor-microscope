@@ -1,9 +1,7 @@
 <template name="layout">
   <div class="container">
     <header role="navigation" class="navbar navbar-default">
-      <div class="navbar-header">
-        <a href="{{pathFor 'postsList'}}" class="navbar-brand">Microscope</a>
-      </div>
+      {{> header}}
     </header>
     <div id="main" class="row-fluid">
       {{> yield}}
