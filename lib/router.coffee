@@ -1,6 +1,7 @@
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
+  notFoundTemplate: '404'
   waitOn: ->
     return Meteor.subscribe 'posts'
 
@@ -11,3 +12,6 @@ Router.route '/posts/:_id',
   name: 'postPage'
   data: ->
     return Posts.findOne this.params._id
+
+Router.onBeforeAction 'dataNotFound',
+  only: 'postPage'
