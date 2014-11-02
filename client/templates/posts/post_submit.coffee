@@ -5,10 +5,13 @@ Template.postSubmit.events 'submit form': (e) ->
     title: $(e.target).find('[name=title]').val()
 
   Meteor.call 'postInsert', post, (error, result) ->
-    # Display the error to user and abort
 
+    # Display the error to user and abort
     return alert error.reason if error
     Router.go 'postPage', _id: result._id
+
+    # Show this result but route anyway
+    return alert 'This link has already been posted' if result.postExists
 
     return
 
