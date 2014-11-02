@@ -6,6 +6,11 @@ Posts.allow
   remove: (userId, post) ->
     ownsDocument userId post
 
+Posts.deny
+  update: (userId, post, filedNames) ->
+    # Only edit these fields
+    _.without(fieldNames, 'url', 'title').length > 0
+
 Meteor.methods
   postInsert: (postAttributes) ->
     check Meteor.userId(), String
