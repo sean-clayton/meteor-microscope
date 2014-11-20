@@ -3,7 +3,10 @@ Router.configure
   loadingTemplate: 'loading'
   notFoundTemplate: '404'
   waitOn: ->
-    Meteor.subscribe 'posts'
+    [
+      Meteor.subscribe 'posts'
+      Meteor.subscribe 'notfications'
+    ]
 
 Router.route '/', name: 'postsList'
 
