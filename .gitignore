@@ -1,3 +1,4 @@
 public/node_modules
 .meteor/local
 npm-debug.log
+.idea
