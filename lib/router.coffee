@@ -14,6 +14,8 @@ Router.route '/posts/:_id',
 
 Router.route '/posts/:_id/edit',
   name: 'postEdit'
+  waitOn: ->
+    Meteor.subscribe 'comments', @.params._id
   data: ->
     Posts.findOne @params._id
 
