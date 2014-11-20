@@ -2,9 +2,9 @@
 
 Posts.allow
   update: (userId, post) ->
-    ownsDocument userId post
+    ownsDocument userId, post
   remove: (userId, post) ->
-    ownsDocument userId post
+    ownsDocument userId, post
 
 Posts.deny
   update: (userId, post, filedNames) ->
@@ -39,5 +39,5 @@ Meteor.methods
       userId: user._id
       author: user.username
       submitted: new Date()
-    postid = Posts.insert post
+    postId = Posts.insert post
     _id: postId

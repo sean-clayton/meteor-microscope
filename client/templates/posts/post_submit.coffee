@@ -12,7 +12,8 @@ Template.postSubmit.events 'submit form': (e) ->
 
     # Display the error to user and abort
     return throwError error.reason if error
-    Router.go 'postPage', _id: result._id
+    Router.go 'postPage',
+      _id: result._id
 
     # Show this result but route anyway
     return throwError 'This link has already been posted' if result.postExists
