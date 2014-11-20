@@ -13,3 +13,4 @@ createCommentNotification = (comment) ->
       commentId: comment._id
       commenterName: comment.author
       read: false
+  return
