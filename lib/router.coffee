@@ -9,13 +9,13 @@ Router.route '/', name: 'postsList'
 
 Router.route '/posts/:_id',
   name: 'postPage'
+  waitOn: ->
+    Meteor.subscribe 'comments', @.params._id
   data: ->
     Posts.findOne this.params._id
 
 Router.route '/posts/:_id/edit',
   name: 'postEdit'
-  waitOn: ->
-    Meteor.subscribe 'comments', @.params._id
   data: ->
     Posts.findOne @params._id
 

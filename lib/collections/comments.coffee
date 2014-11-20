@@ -17,7 +17,7 @@ Meteor.methods
       submitted: new Date()
     }
 
-    Posts.update comment.postId
-      $inc: commentsCount: 1 # commentCount++ in some weird juju syntax o.O
+    Posts.update comment.postId,
+      $inc: commentsCount: 1
 
     Comments.insert comment
